@@ -1,10 +1,10 @@
 pipeline {
 
   environment {
-    PROJECT = "my-project-600-339318"
+    PROJECT = "subbareddy-336408"
     APP_NAME = "emailservice"
     FE_SVC_NAME = "${APP_NAME}-frontend"
-    CLUSTER = "iphone"
+    CLUSTER = "su-cluster"
     CLUSTER_ZONE = "us-central1-c"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
     JENKINS_CRED = "${PROJECT}"
@@ -62,7 +62,7 @@ spec:
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
-          sh "gcloud container clusters get-credentials iphone --zone us-central1-c --project my-project-600-339318"
+          sh "gcloud container clusters get-credentials su-cluster --zone us-central1-c --project subbareddy-336408"
           sh "kubectl --help"
          
          
